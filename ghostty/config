@@ -1,0 +1,32 @@
+# Set a minimal and fast theme
+theme = catppuccin-mocha
+
+# Define the font settings for clarity and performance
+font-family = Jetbrains-mono
+font-size = 13
+
+# Set the initial window size in terms of columns and rows
+window-width = 80
+window-height = 24
+
+# Enable window padding for a cleaner look
+window-padding-x = 2
+window-padding-y = 2
+
+# Set the cursor to a block style for better visibility
+cursor-style = block
+
+# Disable unnecessary features to enhance performance
+resize-overlay = always
+scrollback-limit = 10000
+
+# Set the default working directory to home
+working-directory = home
+
+# Enable focus follows mouse for efficient navigation
+focus-follows-mouse = true
+
+# Set keybindings for common actions
+keybind = ctrl+shift+t=new_tab
+keybind = ctrl+shift+w=close_surface
+

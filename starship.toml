@@ -1,0 +1,155 @@
+############################################
+
+# Battery configuration with enhanced symbols
+
+[battery]
+full_symbol = "🔋"
+charging_symbol = "🔌"
+discharging_symbol = "⚡"
+
+[[battery.display]]
+threshold = 30
+style = "bold red"
+
+
+# Character styling
+[character]
+error_symbol = "[✖](bold red) "
+success_symbol = "[❯](bold bright-white)"
+
+# Directory display with clean truncation and lock symbol
+[directory]
+truncation_length = 3
+read_only = " "
+format = "[📂 $path]($style)[$lock_symbol]($lock_style) "
+style = "bold bright-white"
+
+# Git branch display
+[git_branch]
+format = "[ $symbol$branch]($style) "
+symbol = ""
+style = "bold red"
+
+# Git commit details
+[git_commit]
+commit_hash_length = 8
+style = "bold white"
+
+# Git state for better visibility
+[git_state]
+format = '[\($state( $progress_current of $progress_total)\)]($style) '
+style = "bold white"
+
+# Git status with enhanced icons
+[git_status]
+conflicted = "⚔️ "
+ahead = "⇡×${count} "
+behind = "⇣×${count} "
+diverged = "⇕×${ahead_count}  ×${behind_count} "
+untracked = "×${count} "
+stashed = " 📦 "
+modified = "📝×${count} "
+staged = "×${count} "
+renamed = "🔄×${count} "
+deleted = "✘×${count} "
+style = "bold white"
+format = "$all_status$ahead_behind"
+
+# Hostname with a bold purple accent
+[hostname]
+ssh_only = false
+format = "[🏠 $hostname]($style) "
+trim_at = "-"
+style = "bold bright-white"
+disabled = false
+
+# Memory usage with a minimalistic look
+[memory_usage]
+format = "🖥️ [$symbol${ram}( | ${swap})]($style) "
+threshold = 50
+style = "bold red"
+disabled = false
+symbol = ""
+
+# Username with bright contrast
+[username]
+style_user = "bold red"
+format = "[$user]($style) @ "
+show_always = true
+
+# Time display
+[time]
+disabled = false
+format = "🕒 [$time]($style)"
+style = "bold white"
+
+# AWS section for cloud visibility
+[aws]
+symbol = "☁️ "
+format = '[[$symbol($profile)(\($region\))(\[$duration\])]($style)]'
+style = "bold red"
+
+# Programming languages and tools
+[buf]
+symbol = "🟢 "
+
+[c]
+symbol = "🔴 "
+format = '[$symbol($version(-$name))]($style)'
+style = "bold white"
+
+[dart]
+symbol = "💙 "
+format = '[$symbol($version)]($style)'
+style = "bold white"
+
+[docker_context]
+symbol = "🐳 "
+format = '[$symbol$context]($style)'
+style = "bold white"
+
+[elixir]
+symbol = "🔮 "
+format = '[$symbol($version \(OTP $otp_version\))]($style)'
+style = "bold white"
+
+[elm]
+symbol = "🌿 "
+format = '[$symbol($version)]($style)'
+style = "bold white"
+
+[golang]
+symbol = "🐹 "
+format = '[$symbol($version)]($style)'
+style = "bold white"
+
+[haskell]
+symbol = "λ "
+format = '[$symbol($version)]($style)'
+style = "bold white"
+
+[java]
+symbol = "☕ "
+format = '[$symbol($version)]($style)'
+style = "bold white"
+
+[lua]
+symbol = "🌙 "
+format = '[$symbol($version)]($style)'
+style = "bold white"
+
+[nodejs]
+symbol = "🟢 "
+format = '[$symbol($version)]($style)'
+style = "bold white"
+
+[python]
+symbol = "🐍 "
+format = '[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)'
+style = "bold white"
+
+[rust]
+symbol = "🦀 "
+format = '[$symbol($version)]($style)'
+style = "bold white"
+
