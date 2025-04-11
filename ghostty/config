@@ -1,0 +1,40 @@
+# Set a minimal and fast theme
+theme = catppuccin-mocha
+
+# Define the font settings for clarity and performance
+font-family = JetBrains Mono
+font-size = 13
+
+# Set the initial window size in terms of columns and rows
+window-width = 80
+window-height = 24
+
+# Enable window padding for a cleaner look
+window-padding-x = 2
+window-padding-y = 2
+
+# Set the cursor to a block style for better visibility
+cursor-style = block
+
+# Enable focus follows mouse for efficient navigation
+focus-follows-mouse = true
+
+# Set keybindings for common actions
+keybind = ctrl+shift+t=new_tab
+keybind = ctrl+shift+w=close_surface
+
+# Additional enhancements
+# Set a custom window title
+title = "Ghostty Terminal"
+
+# Enable window state saving
+window-save-state = always
+
+# Set the default working directory to home
+working-directory = home
+
+# Enable scrollback history
+scrollback-limit = 10000
+
+# Enable a subtle transparency effect
+background-opacity = 0.95
