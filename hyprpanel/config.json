@@ -5,10 +5,10 @@
   "theme.font.size": "1em",
   "theme.bar.buttons.radius": "1em",
   "bar.workspaces.workspaces": 2,
-  "bar.workspaces.showWsIcons": true,
+  "bar.workspaces.showWsIcons": false,
   "bar.workspaces.scroll_speed": 2,
   "theme.bar.buttons.windowtitle.enableBorder": false,
-  "bar.clock.format": "%I:%M:%S",
+  "bar.clock.format": "%I:%M",
   "bar.clock.icon": "󰥔",
   "theme.bar.buttons.notifications.enableBorder": false,
   "bar.notifications.show_total": true,
@@ -17,10 +17,8 @@
       "left": [
         "dashboard",
         "hyprsunset",
-        "hypridle",
         "windowtitle",
-        "media",
-        "systray"
+        "media"
       ],
       "middle": [
         "workspaces"
@@ -30,7 +28,6 @@
         "network",
         "battery",
         "clock",
-        "hypridle",
         "notifications"
       ]
     },
@@ -172,7 +169,7 @@
   "theme.bar.menus.menu.clock.calendar.weekdays": "#f5c2e7",
   "theme.bar.menus.menu.clock.calendar.yearmonth": "#94e2d5",
   "theme.bar.menus.menu.clock.time.timeperiod": "#94e2d5",
-  "theme.bar.menus.menu.clock.time.time": "#f5c2e7",
+  "theme.bar.menus.menu.clock.time.time": "#ed333b",
   "theme.bar.menus.menu.clock.text": "#cdd6f4",
   "theme.bar.menus.menu.clock.border.color": "#313244",
   "theme.bar.menus.menu.clock.background.color": "#11111b",
@@ -408,48 +405,7 @@
   "theme.notification.background": "#181826",
   "theme.bar.transparent": false,
   "theme.bar.opacity": 100,
-  "bar.workspaces.workspaceIconMap": {
-    "1": {
-      "icon": "",
-      "color": "#fab387"
-    },
-    "2": {
-      "icon": "",
-      "color": "#f9e2af"
-    },
-    "3": {
-      "icon": "",
-      "color": "#cba6f7"
-    },
-    "4": {
-      "icon": "",
-      "color": "#f38ba8"
-    },
-    "5": {
-      "icon": "",
-      "color": "yellow"
-    },
-    "6": {
-      "icon": "󰉋",
-      "color": "#94e2d5"
-    },
-    "7": {
-      "icon": "",
-      "color": "#a6e3a1"
-    },
-    "8": {
-      "icon": "󰓇",
-      "color": "lightgreen"
-    },
-    "9": {
-      "icon": "󰙯",
-      "color": "#89b4fa"
-    },
-    "10": {
-      "icon": "",
-      "color": "#a6adc8"
-    }
-  },
+  "bar.workspaces.workspaceIconMap": {},
   "theme.bar.buttons.workspaces.numbered_active_highlight_padding": "1em",
   "theme.bar.buttons.workspaces.numbered_active_highlight_border": "0.8em",
   "theme.bar.buttons.spacing": "0.25em",
@@ -457,51 +413,10 @@
   "scalingPriority": "gdk",
   "bar.customModules.updates.updateCommand": "$HOME/.local/scripts/checkforupdates",
   "bar.customModules.cpu.pollingInterval": 1100,
-  "theme.bar.buttons.workspaces.enableBorder": true,
+  "theme.bar.buttons.workspaces.enableBorder": false,
   "theme.bar.buttons.dashboard.enableBorder": false,
   "theme.bar.buttons.workspaces.fontSize": "1.3em",
-  "bar.windowtitle.title_map": [
-    [
-      "armcord",
-      "",
-      "Armcord"
-    ],
-    [
-      "gjs",
-      "",
-      "Hyprpanel Settings"
-    ],
-    [
-      "zen-beta",
-      "󰰶",
-      "Zen Browser"
-    ],
-    [
-      "org.qbittorrent.qBittorrent",
-      "μ",
-      "qBitTorrent"
-    ],
-    [
-      "com.mitchellh.ghostty",
-      "󰊠",
-      "Ghostty"
-    ],
-    [
-      "jetbrains-idea-ce",
-      "",
-      "IntelliJ Idea"
-    ],
-    [
-      "YouTube Music Desktop App",
-      "",
-      "YT Music"
-    ],
-    [
-      "com.github.th_ch.youtube_music",
-      "󰗃",
-      "YT Music"
-    ]
-  ],
+  "bar.windowtitle.title_map": {},
   "theme.bar.menus.menu.media.scaling": 95,
   "theme.bar.menus.menu.notifications.scaling": 95,
   "theme.bar.menus.menu.clock.scaling": 95,
@@ -522,11 +437,11 @@
   "theme.bar.buttons.modules.submap.border": "#94e2d5",
   "theme.bar.buttons.modules.submap.icon": "#94e2d5",
   "theme.bar.buttons.modules.submap.icon_background": "#242438",
-  "theme.bar.menus.menu.notifications.height": "69em",
+  "theme.bar.menus.menu.notifications.height": "40em",
   "menus.media.noMediaText": "No Media Currently Playing",
-  "menus.media.displayTimeTooltip": false,
+  "menus.media.displayTimeTooltip": true,
   "notifications.displayedTotal": 10,
-  "menus.volume.raiseMaximumVolume": false,
+  "menus.volume.raiseMaximumVolume": true,
   "menus.clock.time.military": false,
   "menus.clock.weather.location": "Kathmandu",
   "theme.bar.border_radius": "4em",
@@ -543,7 +458,7 @@
   "menus.dashboard.directories.right.directory2.label": "󰉏   Pictures",
   "menus.dashboard.directories.right.directory3.label": "󱂵   Home",
   "menus.dashboard.directories.left.directory3.label": "󰚝   Projects",
-  "notifications.position": "top",
+  "notifications.position": "right",
   "menus.media.hideAuthor": false,
   "menus.media.hideAlbum": false,
   "theme.bar.buttons.workspaces.pill.radius": "1.9rem * 0.6",
@@ -582,15 +497,15 @@
   "theme.bar.menus.menu.power.scaling": 95,
   "theme.tooltip.scaling": 95,
   "theme.bar.menus.popover.scaling": 95,
-  "bar.launcher.autoDetectIcon": true,
+  "bar.launcher.autoDetectIcon": false,
   "theme.font.label": "JetBrains Mono Medium",
   "menus.transition": "crossfade",
   "theme.bar.buttons.enableBorders": false,
   "menus.media.displayTime": true,
   "theme.notification.border_radius": "2em",
-  "theme.osd.location": "left",
+  "theme.osd.location": "bottom right",
   "theme.osd.orientation": "vertical",
-  "theme.osd.margins": "0px 10px 10px 0px",
+  "theme.osd.margins": "0px 10px 15px 0px",
   "menus.clock.time.hideSeconds": true,
   "menus.clock.weather.unit": "metric",
   "theme.bar.menus.menu.dashboard.profile.radius": "8em",
@@ -599,5 +514,20 @@
   "menus.dashboard.shortcuts.left.shortcut1.tooltip": "Zen-Browser",
   "menus.dashboard.shortcuts.left.shortcut3.command": "vesktop",
   "bar.customModules.ram.icon": "",
-  "menus.power.lowBatteryNotification": true
+  "menus.power.lowBatteryNotification": true,
+  "menus.power.showLabel": true,
+  "theme.bar.buttons.modules.microphone.enableBorder": false,
+  "bar.workspaces.show_numbered": false,
+  "menus.clock.weather.enabled": false,
+  "wallpaper.enable": false,
+  "bar.customModules.scrollSpeed": 7,
+  "theme.bar.buttons.modules.ram.enableBorder": false,
+  "menus.dashboard.stats.enable_gpu": true,
+  "theme.osd.radius": "1.2em",
+  "theme.bar.buttons.borderSize": "0.05em",
+  "theme.bar.border.width": "1em",
+  "theme.bar.layer": "top",
+  "theme.bar.margin_top": "0.35em",
+  "bar.workspaces.monitorSpecific": false,
+  "bar.battery.label": true
 }
