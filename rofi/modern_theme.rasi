@@ -46,7 +46,7 @@ window {
     border-color: @border-col;
     border-radius: 8px;
     background-color: @bg-col;
-    background-image: url("~/.config/rofi/bg.png", width);
+    background-image: url("/home/masubhaat/.config/rofi/rofi_blurred_bg.png", width);
 }
 
 mainbox {
