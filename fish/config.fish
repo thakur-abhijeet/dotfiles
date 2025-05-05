@@ -1,13 +1,19 @@
 # ───────────────────────────[ System & Fun ]─────────────────────────── #
 
 alias clr "clear && fastfetch"
+alias update "sudo pacman -Syu"
+alias clean "sudo pacman -Scc"
+alias remove "sudo pacman -Rns"
+alias search "pacman -Ss"
 
 # ───────────────────────────[ Network ]─────────────────────────── #
 
 alias wl "nmcli device wifi list"
 alias sw "nmcli device wifi show"
+alias wifi "nmcli device wifi connect"
+alias wd "nmcli device wifi disconnect"
 
-# ───────────────────────────[ Aliases ]─────────────────────────── #
+# ───────────────────────────[ File Management ]─────────────────────────── #
 
 alias ls "eza --icons --git --group-directories-first"
 alias la "eza -a --icons --git --group-directories-first"
@@ -19,6 +25,22 @@ alias .... "cd ../../.."
 alias ..... "cd ../../../.."
 alias e thunar
 alias x exit
+alias cp "cp -i"
+alias mv "mv -i"
+alias rm "rm -i"
+alias mkdir "mkdir -p"
+
+# ───────────────────────────[ Development ]─────────────────────────── #
+
+alias g "git"
+alias ga "git add"
+alias gc "git commit"
+alias gp "git push"
+alias gl "git pull"
+alias gs "git status"
+alias gd "git diff"
+alias gb "git branch"
+alias gco "git checkout"
 
 # ───────────────────────────[ Tmux Shortcuts ]─────────────────────────── #
 
@@ -27,6 +49,7 @@ alias tns "tmux new -s"
 alias tas "tmux attach -t"
 alias tls "tmux list-sessions"
 alias tds "tmux detach"
+alias tk "tmux kill-session -t"
 
 # Bind Ctrl-f to tmux-sessionizer
 bind \cf tmux-sessionizer
@@ -34,8 +57,13 @@ bind \cf tmux-sessionizer
 # ───────────────────────────[ PATH Configuration ]─────────────────────────── #
 
 fish_add_path "/usr/local/bin"
+fish_add_path "$HOME/.local/bin"
+fish_add_path "$HOME/.cargo/bin"
 set -gx PATH $JAVA_HOME $PATH
 set -gx BROWSER zen-browser
+set -gx EDITOR nvim
+set -gx VISUAL nvim
+set -gx TERMINAL alacritty
 
 # ───────────────────────────[ Starship Prompt ]─────────────────────────── #
 
@@ -45,16 +73,15 @@ starship init fish | source
 
 zoxide init fish | source
 
-# ───────────────────────────[ Conda Initialization ]─────────────────────────── #
+# ───────────────────────────[ Environment Variables ]─────────────────────────── #
 
-# !! Contents within this block are managed by 'conda init' !!
+set -gx XDG_CONFIG_HOME "$HOME/.config"
+set -gx XDG_CACHE_HOME "$HOME/.cache"
+set -gx XDG_DATA_HOME "$HOME/.local/share"
+set -gx XDG_STATE_HOME "$HOME/.local/state"
 
-if test -f /home/masubhaat/miniconda3/bin/conda
-    eval /home/masubhaat/miniconda3/bin/conda "shell.fish" "hook" $argv | source
-else if test -f "/home/masubhaat/miniconda3/etc/fish/conf.d/conda.fish"
-    source "/home/masubhaat/miniconda3/etc/fish/conf.d/conda.fish"
-else
-    set -x PATH "/home/masubhaat/miniconda3/bin" $PATH
-end
+# ───────────────────────────[ History Configuration ]─────────────────────────── #
 
-# <<< conda initialize <<< 
+set -gx HISTSIZE 10000
+set -gx SAVEHIST 10000
+set -gx HISTFILE "$XDG_STATE_HOME/history"

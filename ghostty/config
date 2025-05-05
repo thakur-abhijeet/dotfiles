@@ -1,40 +1,65 @@
-# Set a minimal and fast theme
+# Theme and Appearance
 theme = catppuccin-mocha
+background-opacity = 0.85
+background-blur = 15
+background-blur-radius = 20
+background-blur-sigma = 10
 
-# Define the font settings for clarity and performance
-font-family = JetBrains Mono
+# Font Configuration
+font-family = JetBrains Mono Nerd Font
 font-size = 13
+font-weight = 400
+font-features = "cv01,cv02,cv03,cv04,ss01,ss02,ss03,ss04,ss05,ss06,zero,onum"
 
-# Set the initial window size in terms of columns and rows
-window-width = 80
-window-height = 24
-
-# Enable window padding for a cleaner look
-window-padding-x = 2
-window-padding-y = 2
-
-# Set the cursor to a block style for better visibility
-cursor-style = block
-
-# Enable focus follows mouse for efficient navigation
-focus-follows-mouse = true
-
-# Set keybindings for common actions
-keybind = ctrl+shift+t=new_tab
-keybind = ctrl+shift+w=close_surface
-
-# Additional enhancements
-# Set a custom window title
-title = "Ghostty Terminal"
-
-# Enable window state saving
+# Window Settings
+window-width = 90
+window-height = 28
+window-padding-x = 4
+window-padding-y = 4
+window-title = "Ghostty Terminal"
 window-save-state = always
-
-# Set the default working directory to home
 working-directory = home
 
-# Enable scrollback history
-scrollback-limit = 10000
+# Cursor and Selection
+cursor-style = block
+cursor-blink = true
+cursor-blink-interval = 500
+selection-foreground = auto
+selection-background = #89b4fa
 
-# Enable a subtle transparency effect
-background-opacity = 0.95
+# Mouse and Focus
+focus-follows-mouse = true
+mouse-hide-while-typing = true
+enable-mouse = true
+
+# Scrolling and History
+scrollback-limit = 10000
+scrollback-multiplier = 3
+scrollback-pager = less
+scrollback-pager-mouse = true
+
+# Keybindings
+keybind = ctrl+shift+t=new_tab
+keybind = ctrl+shift+w=close_surface
+keybind = ctrl+shift+plus=increase_font_size
+keybind = ctrl+shift+minus=decrease_font_size
+keybind = ctrl+shift+0=reset_font_size
+keybind = ctrl+shift+c=copy_to_clipboard
+keybind = ctrl+shift+v=paste_from_clipboard
+
+# Performance and Rendering
+sync-to-monitor = true
+enable-ligatures = true
+box-drawing-uses-font-glyphs = true
+disable-ligatures-never = true
+
+# Bell and Notifications
+enable-bell = true
+bell-on-alert = true
+bell-duration = 200
+
+# URL Detection
+url-launcher = xdg-open
+url-detection = true
+url-style = curly
+url-prefixes = http,https,ftp,ftps,file,mailto,news,irc,ircs,git,ssh,rsync,smb,smb,file

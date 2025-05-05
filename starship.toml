@@ -1,25 +1,38 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
-format = """$battery$directory$git_branch$git_status$git_state$git_state$line_break$character"""
-right_format = """$python $cmd_duration"""
+format = """$username$hostname$battery$directory$git_branch$git_status$git_state$line_break$character"""
+right_format = """$python$cmd_duration$time"""
 
 add_newline = true
 
-# Other languages configurations:
-c.disabled = true
-cmake.disabled = true
-haskell.disabled = true
-# python.disabled = true
-ruby.disabled = true
-rust.disabled = true
-perl.disabled = true
-package.disabled = true
-lua.disabled = true
-nodejs.disabled = true
-java.disabled = true
-golang.disabled = true
+# Enable useful language modules
+c.disabled = false
+cmake.disabled = false
+haskell.disabled = false
+python.disabled = false
+ruby.disabled = false
+rust.disabled = false
+perl.disabled = false
+package.disabled = false
+lua.disabled = false
+nodejs.disabled = false
+java.disabled = false
+golang.disabled = false
 
 palette = "catppuccin_mocha"
+
+[username]
+style_user = "bold blue"
+style_root = "bold red"
+format = "[$user]($style) "
+disabled = false
+show_always = true
+
+[hostname]
+ssh_only = false
+format = "[@$hostname]($style) "
+style = "bold green"
+disabled = false
 
 [palettes.catppuccin_mocha]
 rosewater = "#f5e0dc"
@@ -55,29 +68,32 @@ disabled = false
 
 [directory]
 fish_style_pwd_dir_length = 1
+truncation_length = 3
+truncate_to_repo = true
+style = "bold blue"
 
 [character]
-success_symbol = "[➜](green bold)"
-error_symbol = "[ ](red)"
-vicmd_symbol = "[ ](yellow)"
+success_symbol = "[❯](green bold)"
+error_symbol = "[✗](red bold)"
+vicmd_symbol = "[V](yellow bold)"
 
 [git_branch]
 format = "[[\\( $symbol$branch](rosewater) | ](text)"
-symbol = " "
+symbol = "󰘬 "
 
 [git_status]
 format = "$all_status$ahead_behind\\)"
 conflicted = "="
 ahead = "[⇡${count} ](green)"
-behind = "⇣${count} "
+behind = "[⇣${count} ](red)"
 diverged = "[⇕⇡${ahead_count} ⇣${behind_count} ](teal)"
-up_to_date = "[󰄸 ](bold green)"
+up_to_date = "[✓ ](bold green)"
 untracked = "[?${count} ](maroon)"
-stashed = "[ 󰏖 ](bold green)"
+stashed = "[📦 ](bold green)"
 modified = "[!${count} ](yellow)"
 staged = "[+${count} ](green)"
 renamed = "[»${count} ](peach)"
-deleted = "[ ${count} ](bold red)"
+deleted = "[🗑️ ${count} ](bold red)"
 
 [git_commit]
 format = "[\\($hash\\)]($style) [\\($tag\\)]($style)"
@@ -96,14 +112,44 @@ format = '\([$state( $progress_current/$progress_total)]($style)\) '
 
 [cmd_duration]
 min_time = 10
-format = '󰥔 [$duration](bold purple)'
+format = '[⏱️ $duration](bold purple)'
 show_milliseconds = true
 
-# [python]
-# symbol = " "
-# format = '[]($style)[(\($virtualenv\))](bg:#161821 fg:#BBC3DF)[ ]($style)'
-# style = "bg:none fg:#161821"
-
 [python]
-symbol = " "
+symbol = "🐍 "
 format = '\[[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)\]'
+style = "bold green"
+
+[time]
+format = '[🕐 $time]($style)'
+style = "bold yellow"
+disabled = false
+time_format = "%R"
+
+[battery]
+full_symbol = "🔋"
+charging_symbol = "⚡"
+discharging_symbol = "💀"
+format = '[\[$symbol$percentage]($style)]'
+style = "bold green"
+disabled = false
+
+[package]
+format = '[📦 $symbol$version]($style)'
+style = "bold blue"
+disabled = false
+
+[rust]
+format = '[⚙️ $symbol$version]($style)'
+style = "bold red"
+disabled = false
+
+[nodejs]
+format = '[⬢ $symbol$version]($style)'
+style = "bold green"
+disabled = false
+
+[golang]
+format = '[🐹 $symbol$version]($style)'
+style = "bold cyan"
+disabled = false
