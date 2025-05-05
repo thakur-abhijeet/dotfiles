@@ -1,0 +1,43 @@
+# System files
+.DS_Store
+Thumbs.db
+
+# Backup files
+*~
+*.bak
+*.swp
+*.swo
+
+# Cache files
+.cache/
+*.cache
+
+# Temporary files
+*.tmp
+*.temp
+
+# Log files
+*.log
+
+# Local configuration files
+.env
+.env.local
+
+# IDE specific files
+.idea/
+.vscode/
+*.sublime-*
+
+# Compiled files
+*.pyc
+*.pyo
+__pycache__/
+
+# Package files
+*.pkg
+*.deb
+*.rpm
+
+# Font cache
+fonts.dir
+fonts.scale 
