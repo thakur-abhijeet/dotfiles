@@ -8,28 +8,28 @@
 #custom-notification {
   font-family: "JetBrains Mono Nerd Font";
   font-size: 17px;
- color: #A1BDCE;
- margin: 2px 0px 0px 0px;
+  color: #7aa2f7;
+  margin: 2px 0px 0px 0px;
 }
 
 window#waybar {
-    background: rgba(15, 15, 23, 0.95);
-    border: 2px solid rgba(255, 255, 255, 0.1);
+    background: rgba(26, 27, 38, 0.95);
+    border: 2px solid rgba(169, 177, 214, 0.1);
     border-radius: 10px;
-    color: #e6e6e6;
+    color: #c0caf5;
 }
 
 tooltip {
-    background: rgba(23, 23, 23, 0.95);
-    color: #e6e6e6;
+    background: rgba(26, 27, 38, 0.95);
+    color: #c0caf5;
     font-size: 13px;
     border-radius: 7px;
-    border: 2px solid rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(169, 177, 214, 0.1);
 }
 
 #workspaces {
     background: transparent;
-    color: #888789;
+    color: #565f89;
     margin: 4px 0;
     padding: 0 4px;
     border-radius: 9px;
@@ -37,7 +37,7 @@ tooltip {
 
 #workspaces button {
     background: transparent;
-    color: #888789;
+    color: #565f89;
     padding: 0 4px;
     margin: 0 2px;
     border-radius: 9px;
@@ -45,13 +45,13 @@ tooltip {
 }
 
 #workspaces button.active {
-    color: #a6d189;
-    background: rgba(166, 209, 137, 0.1);
+    color: #9ece6a;
+    background: rgba(158, 206, 106, 0.1);
 }
 
 #workspaces button:hover {
-    color: #e6e6e6;
-    background: rgba(230, 230, 230, 0.1);
+    color: #c0caf5;
+    background: rgba(192, 202, 245, 0.1);
 }
 
 #taskbar button {
@@ -113,14 +113,14 @@ background:  #161320;
 }
 
 #custom-power {
-    color: #e06c75;
+    color: #f7768e;
     padding: 0 10px;
     font-size: 16px;
 }
 
 #backlight{
-    color: #2096C0;
-    background: rgba(23, 23, 23, 0.0);
+    color: #7aa2f7;
+    background: rgba(26, 27, 38, 0.0);
     font-weight: normal;
     font-size: 19px;
     margin: 1px 0px 0px 0px;
@@ -130,8 +130,8 @@ background:  #161320;
 }
 #bluetooth,
 #custom-cliphist{
-    color: #E6E7E7;
-    background:  #161320;
+    color: #c0caf5;
+    background: #1a1b26;
     opacity: 1;
     margin: 4px 0px 4px 0px;
     padding-left: 4px;
@@ -141,8 +141,8 @@ background:  #161320;
 #battery{
     font-weight: normal;
     font-size: 22px;
-    color: #a6d189;
-    background:  rgba(23, 23, 23, 0.0);
+    color: #9ece6a;
+    background:  rgba(26, 27, 38, 0.0);
     opacity: 1;
     margin: 0px 0px 0px 0px;
     padding-left: 0px;
@@ -151,7 +151,7 @@ background:  #161320;
 }
 
 #idle_inhibitor{
-color: #24966e;
+color: #9ece6a;
 background: @bar-bg;
     opacity: 1;
     margin: 4px 0px 4px 0px;
@@ -160,11 +160,11 @@ background: @bar-bg;
 
 }
 #clock{
-    color: #e6e6e6;
+    color: #c0caf5;
     font-size: 15px;
     font-weight: 900;
     font-family: "JetBrains Mono Nerd Font";
-    background: rgba(23, 23, 23, 0.0);
+    background: rgba(26, 27, 38, 0.0);
     opacity: 1;
     margin: 3px 0px 0px 0px;
     padding-left: 10px;
@@ -175,8 +175,8 @@ background: @bar-bg;
 #pulseaudio{
 font-weight: normal;
 font-size: 18px;
-color: #6F8FDB;
-    background:  rgba(22, 19, 32, 0.0);
+color: #bb9af7;
+    background:  rgba(26, 27, 38, 0.0);
     opacity: 1;
     margin: 0px 0px 0px 0px;
     padding-left: 3px;
@@ -185,11 +185,11 @@ color: #6F8FDB;
 #cpu{
 font-weight: normal;
 font-size: 22px;
-color: #915CAF;
+color: #7aa2f7;
 }
 #custom-led{
-background: #427287;
-color: #FFFFFF;
+background: #414868;
+color: #c0caf5;
 margin-top: 7px;
 margin-bottom: 7px;
 padding-left: 6px;
@@ -202,7 +202,7 @@ margin-right: 6px;
 #memory{
 font-weight: normal;
 font-size: 22px;
-color: #E4C9AF;
+color: #e0af68;
 }
 #mpris{
 color: white;
@@ -221,7 +221,7 @@ animation: repeat;
     }
 }
 #network{
-color: #e6e6e6;
+color: #c0caf5;
 font-weight: normal;
 font-size: 19px;
 padding-right: 0px;
@@ -232,8 +232,8 @@ padding-left: 4px
 #taskbar,
 #custom-theme,
 #custom-menu{
-color: #E8EDF0;
-background:  rgba(23, 23, 23, 0.0);
+color: #c0caf5;
+background:  rgba(26, 27, 38, 0.0);
 margin: 0px 0px 0px 0px;
     padding-left: 1px;
     padding-right: 1px;
@@ -244,7 +244,7 @@ margin: 0px 0px 0px 0px;
 #custom-wallchange,
 #custom-wbar,
 #window{
-color: #e6e6e6;
+color: #c0caf5;
 font-family: "Martian Mono";
 }
 #custom-l_end,
@@ -255,7 +255,7 @@ font-family: "Martian Mono";
 #cava,
 #upower#headset,
 #upower{
-color: #a6d189;
+color: #9ece6a;
 }
 #mpris{
 font-size: 15px;
@@ -263,8 +263,8 @@ font-weight: bold
 }
 #custom-rr_end {
 font-weight: normal;
-    color: #E8EDF0;
-    background:  rgba(23, 23, 23, 0.0);
+    color: #c0caf5;
+    background:  rgba(26, 27, 38, 0.0);
     opacity: 1;
     margin: 0px 0px 0px 0px;
     padding-left: 4px;
@@ -298,7 +298,7 @@ font-weight: normal;
 }
 
 #battery.charging, #battery.plugged {
-	color: #E8EDF0;
+	color: #c0caf5;
 	
 }
 
@@ -363,12 +363,12 @@ font-weight: normal;
 }
 
 #window {
-    color: #e6e6e6;
+    color: #c0caf5;
     padding: 0 10px;
 }
 
 #custom-launcher {
-    color: #a6d189;
+    color: #9ece6a;
     padding: 0 10px;
     font-size: 16px;
 }
@@ -379,43 +379,43 @@ font-weight: normal;
 }
 
 #pulseaudio {
-    color: #e6e6e6;
+    color: #c0caf5;
     padding: 0 10px;
 }
 
 #pulseaudio.muted {
-    color: #e06c75;
+    color: #f7768e;
 }
 
 #pulseaudio#microphone {
-    color: #e6e6e6;
+    color: #c0caf5;
     padding: 0 10px;
 }
 
 #pulseaudio#microphone.muted {
-    color: #e06c75;
+    color: #f7768e;
 }
 
 #network {
-    color: #e6e6e6;
+    color: #c0caf5;
     padding: 0 10px;
 }
 
 #network.disconnected {
-    color: #e06c75;
+    color: #f7768e;
 }
 
 #bluetooth {
-    color: #e6e6e6;
+    color: #c0caf5;
     padding: 0 10px;
 }
 
 #bluetooth.disabled {
-    color: #e06c75;
+    color: #f7768e;
 }
 
 #battery {
-    color: #a6d189;
+    color: #9ece6a;
     padding: 0 10px;
 }
 
@@ -424,11 +424,11 @@ font-weight: normal;
 }
 
 #battery.critical {
-    color: #e06c75;
+    color: #f7768e;
 }
 
 #clock {
-    color: #e6e6e6;
+    color: #c0caf5;
     padding: 0 10px;
 }
 

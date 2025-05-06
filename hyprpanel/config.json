@@ -609,7 +609,7 @@
   "bar.scrollSpeed": 0,
   "bar.workspaces.applicationIconOncePerWorkspace": true,
   "bar.workspaces.show_icons": false,
-  "bar.workspaces.showApplicationIcons": false,
+  "bar.workspaces.showApplicationIcons": true,
   "bar.windowtitle.icon": true,
   "bar.windowtitle.truncation": true,
   "bar.windowtitle.truncation_size": 20,
@@ -656,6 +656,6 @@
   "theme.bar.border.width": "1em",
   "theme.bar.layer": "top",
   "theme.bar.margin_top": "0.35em",
-  "bar.workspaces.monitorSpecific": false,
+  "bar.workspaces.monitorSpecific": true,
   "bar.battery.label": true
 }

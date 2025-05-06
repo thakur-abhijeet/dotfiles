@@ -17,14 +17,14 @@ configuration {
 @import                          "shared/fonts.rasi"
 
 * {
-    bg:                         #1e1e2e;
-    bg-alt:                     #181825;
-    fg:                         #cdd6f4;
-    fg-alt:                     #a6adc8;
-    border:                     #89b4fa;
-    selected:                   #89b4fa;
-    active:                     #f38ba8;
-    urgent:                     #f38ba8;
+    bg:                         #1a1b26;
+    bg-alt:                     #24283b;
+    fg:                         #c0caf5;
+    fg-alt:                     #565f89;
+    border:                     #7aa2f7;
+    selected:                   #7aa2f7;
+    active:                     #bb9af7;
+    urgent:                     #f7768e;
     background-color:           @bg;
     text-color:                 @fg;
     border-color:               @border;
@@ -48,7 +48,7 @@ window {
     border-color:               @border;
     cursor:                     "default";
     background-color:           @bg;
-    background-image:           linear-gradient(to bottom, rgba(30, 30, 46, 0.75), rgba(24, 24, 37, 0.75));
+    background-image:           linear-gradient(to bottom, rgba(26, 27, 38, 0.75), rgba(36, 40, 59, 0.75));
     blur:                       true;
     blur-radius:                10;
 }
