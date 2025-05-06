@@ -657,5 +657,7 @@
   "theme.bar.layer": "top",
   "theme.bar.margin_top": "0.35em",
   "bar.workspaces.monitorSpecific": true,
-  "bar.battery.label": true
+  "bar.battery.label": true,
+  "bar.workspaces.applicationIconEmptyWorkspace": "",
+  "bar.workspaces.icons.active": ""
 }
