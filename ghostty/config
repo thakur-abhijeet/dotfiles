@@ -1,10 +1,9 @@
-
 # Load custom Tokyo Night theme
 theme = tokyo-night
 
 # Transparency & blur
 background-opacity = 0.85
-background-blur = 15
+background-blur = 12
 
 # Font settings
 font-family = "JetBrains Mono Nerd Font"

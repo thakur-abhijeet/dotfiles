@@ -1,6 +1,6 @@
 # ───────────────────────────[ System & Fun ]─────────────────────────── #
 
-alias clr "clear && fastfetch"
+alias clr "clear && cd && fastfetch"
 alias update "sudo pacman -Syu"
 alias clean "sudo pacman -Scc"
 alias remove "sudo pacman -Rns"
@@ -23,12 +23,7 @@ alias .. "cd .."
 alias ... "cd ../.."
 alias .... "cd ../../.."
 alias ..... "cd ../../../.."
-alias e thunar
 alias x exit
-alias cp "cp -i"
-alias mv "mv -i"
-alias rm "rm -i"
-alias mkdir "mkdir -p"
 
 # ───────────────────────────[ Development ]─────────────────────────── #
 
@@ -52,6 +47,7 @@ alias tds "tmux detach"
 alias tk "tmux kill-session -t"
 
 # Bind Ctrl-f to tmux-sessionizer
+
 bind \cf tmux-sessionizer
 
 # ───────────────────────────[ PATH Configuration ]─────────────────────────── #
@@ -63,7 +59,6 @@ set -gx PATH $JAVA_HOME $PATH
 set -gx BROWSER zen-browser
 set -gx EDITOR nvim
 set -gx VISUAL nvim
-set -gx TERMINAL alacritty
 
 # ───────────────────────────[ Starship Prompt ]─────────────────────────── #
 

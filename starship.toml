@@ -5,13 +5,9 @@ format = """$username$hostname$battery$directory$git_branch$git_status$git_state
 right_format = """$python$cmd_duration$time"""
 add_newline = true
 
-# Color palette configuration
-#[palette]
-#name = "tokyo_night"
-
 # User interface elements
 [username]
-style_user = "bold blue"
+style_user = "bold red"
 style_root = "bold red"
 format = "[$user]($style) "
 disabled = false
@@ -20,7 +16,7 @@ show_always = true
 [hostname]
 ssh_only = false
 format = "[@$hostname]($style) "
-style = "bold green"
+style = "white"
 disabled = false
 
 [directory]
@@ -94,7 +90,7 @@ style = "bold green"
 
 [cmd_duration]
 min_time = 10
-format = "[⏱️ $duration](bold purple)"
+format = "[⏱️ $duration ](bold purple)"
 show_milliseconds = true
 
 [time]
