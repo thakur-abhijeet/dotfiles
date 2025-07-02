@@ -2,8 +2,8 @@
 theme = tokyo-night
 
 # Transparency & blur
-background-opacity = 0.85
-background-blur = 12
+background-opacity = 0.3
+background-blur = 8
 
 # Font settings
 font-family = "JetBrains Mono Nerd Font"
