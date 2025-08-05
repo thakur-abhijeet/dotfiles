@@ -1,0 +1,42 @@
+"$schema" = "https://starship.rs/config-schema.json"
+
+format = """
+$username$directory$git_branch$git_status
+$character """
+
+add_newline = true
+
+# Username in red
+[username]
+style_user = "bold red"
+format = "[$user]($style) "
+show_always = true
+
+# Directory in bright blue
+[directory]
+style = "bright-blue"
+truncate_to_repo = true
+format = "[$path]($style) "
+
+# Git branch in bright blue
+[git_branch]
+symbol = " "
+style = "bright-blue"
+format = "($symbol$branch) "
+
+# Git status in bold red
+[git_status]
+style = "bold red"
+format = "[$all_status]($style) "
+
+# Prompt character and time opts
+[character]
+success_symbol = "[❯](white bold)"
+error_symbol = "[✗](red bold)"
+vicmd_symbol = "[V](red bold)"
+
+[time]
+style = "white"
+format = "[🕐 $time]($style)"
+disabled = false
+time_format = "%R"

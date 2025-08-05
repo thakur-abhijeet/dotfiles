@@ -1,0 +1,165 @@
+
+{
+  "exec": "/home/masubhaat/.local/bin/pomodoro",
+  "height": 30,
+  "layer": "top",
+  "position": "top",
+  "reload_style_on_change": true,
+  "spacing": 0,
+
+  "modules-left": [
+    "hyprland/workspaces",
+    "custom/pomodoro"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "group/tray-expander",
+    "bluetooth",
+    "backlight",
+    "power-profiles-daemon",
+    "network",
+    "pulseaudio",
+    "cpu",
+    "battery"
+  ],
+
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "default": "",
+      "1": "1", "2": "2", "3": "3", "4": "4", "5": "5",
+      "6": "6", "7": "7", "8": "8", "9": "9",
+      "active": ""
+    },
+    "on-click": "activate",
+    "persistent-workspaces": {
+      "1": [], "2": [], "3": [], "4": [], "5": []
+    }
+  },
+
+  "custom/pomodoro": {
+    "exec": "/home/masubhaat/.local/bin/waybar-module-pomodoro",
+    "format": "{}",
+    "return-type": "json",
+    "on-click": "/home/masubhaat/.local/bin/waybar-module-pomodoro toggle",
+    "on-click-right": "/home/masubhaat/.local/bin/waybar-module-pomodoro reset"
+  },
+
+  "clock": {
+    "format": "{:%A %H:%M}",
+    "format-alt": "{:%d %B W%V %Y}",
+    "tooltip": false,
+    "on-click-right": "~/.local/share/omarchy/bin/omarchy-cmd-tzupdate"
+  },
+
+  "cpu": {
+    "format": "󰍛",
+    "interval": 5,
+    "on-click": "alacritty -e btop"
+  },
+
+  "network": {
+    "format": "{icon}",
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+    "format-wifi": "{icon}",
+    "format-ethernet": "󰀂",
+    "format-disconnected": "󰖪",
+    "tooltip-format-wifi": "{essid} ({frequency} GHz)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "tooltip-format-disconnected": "Disconnected",
+    "interval": 3,
+    "nospacing": 1,
+    "on-click": "alacritty --class=Impala -e impala"
+  },
+
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "format-icons": {
+      "power-saver": "󰡳",
+      "balanced": "󰊚",
+      "performance": "󰡴"
+    },
+    "tooltip": true,
+    "tooltip-format": "Power profile: {profile}"
+  },
+
+  "battery": {
+    "format": "{capacity}% {icon}",
+    "format-discharging": "{icon}",
+    "format-charging": "{icon}",
+    "format-plugged": "",
+    "format-full": "󰂅",
+    "format-icons": {
+      "charging": [
+        "󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉",
+        "󰢞", "󰂊", "󰂋", "󰂅"
+      ],
+      "default": [
+        "󰁺", "󰁻", "󰁼", "󰁽", "󰁾",
+        "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"
+      ]
+    },
+    "tooltip-format-charging": "{power:>1.0f}W↑ {capacity}%",
+    "tooltip-format-discharging": "{power:>1.0f}W↓ {capacity}%",
+    "interval": 5,
+    "states": {
+      "warning": 20,
+      "critical": 10
+    }
+  },
+
+  "bluetooth": {
+    "format": "",
+    "format-disabled": "󰂲",
+    "format-connected": "",
+    "tooltip-format": "Devices connected: {num_connections}",
+    "on-click": "blueberry"
+  },
+
+  "pulseaudio": {
+    "format": "{icon}",
+    "format-muted": "󰝟",
+    "format-icons": {
+      "default": ["", "", ""]
+    },
+    "tooltip-format": "Playing at {volume}%",
+    "scroll-step": 5,
+    "on-click": "alacritty --class=Wiremix -e wiremix",
+    "on-click-right": "pamixer -t"
+  },
+
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon}",
+    "format-icons": ["󰃞", "󰃟", "󰃠"],
+    "tooltip": true,
+    "tooltip-format": "Brightness: {percent}%",
+    "on-scroll-up": "brightnessctl set +5%",
+    "on-scroll-down": "brightnessctl set 5%-"
+  },
+
+  "group/tray-expander": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 600,
+      "children-class": "tray-group-item"
+    },
+    "modules": [
+      "custom/expand-icon",
+      "tray"
+    ]
+  },
+
+  "custom/expand-icon": {
+    "format": " ",
+    "tooltip": false
+  },
+
+  "tray": {
+    "icon-size": 12,
+    "spacing": 12
+  }
+}
+
