@@ -1,0 +1,74 @@
+@import "../omarchy/current/theme/waybar.css";
+
+/* ──────────────────────────────
+   Global Style
+────────────────────────────── */
+* {
+  background-color: @background;
+  color: @foreground;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  font-family: CaskaydiaMono Nerd Font Propo;
+  font-size: 14px;
+}
+
+/* ──────────────────────────────
+   Layout Spacing
+────────────────────────────── */
+.modules-left { margin-left: 8px; }
+.modules-right { margin-right: 8px; }
+
+/* ──────────────────────────────
+   Workspaces Styling
+────────────────────────────── */
+#workspaces button {
+  all: initial;
+  padding: 0 6px;
+  margin: 0 1.5px;
+  min-width: 9px;
+}
+
+/* Active workspace */
+#workspaces button.active { 
+  color: @foreground; 
+}
+
+/* Empty workspace */
+#workspaces button.empty { 
+  opacity: 0.5; 
+}
+
+/* Occupied workspace - subtle pale red */
+#workspaces button.occupied { 
+  color: rgba(255, 128, 128, 0.35); 
+}
+
+/* ──────────────────────────────
+   Module Spacing
+────────────────────────────── */
+#tray,
+#cpu,
+#backlight,
+#power-profiles-daemon,
+#battery,
+#network,
+#bluetooth,
+#pulseaudio,
+#clock,
+#custom-power-menu {
+  min-width: 12px;
+  margin: 0 7.5px;
+}
+
+/* Custom expand icon spacing */
+#custom-expand-icon { 
+  margin-right: 12px; 
+}
+
+/* ──────────────────────────────
+   Tooltip Styling
+────────────────────────────── */
+tooltip { 
+  padding: 2px; 
+}
