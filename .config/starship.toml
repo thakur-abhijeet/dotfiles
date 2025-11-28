@@ -1,0 +1,41 @@
+"$schema" = "https://starship.rs/config-schema.json"
+
+# Overall prompt format: username, directory, git branch, git status, and prompt char
+format = "$username$directory$git_branch$git_status$character"
+add_newline = true
+
+# ────────────── Username ──────────────
+[username]
+style_user = "bold red"
+format = "[$user]($style)"
+show_always = true
+
+# ────────────── Directory ──────────────
+[directory]
+style = "bright-blue"
+truncate_to_repo = true
+format = "[$path]($style)"
+
+# ────────────── Git Branch ──────────────
+[git_branch]
+symbol = " "
+style = "bright-blue"
+format = "($symbol$branch)"
+
+# ────────────── Git Status ──────────────
+[git_status]
+style = "bold bright-blue"
+format = "[$all_status]($style)"
+
+# ────────────── Prompt Character ──────────────
+[character]
+success_symbol = "[❯](white bold)"
+error_symbol = "[✗](red bold)"
+vicmd_symbol = "[V](red bold)"
+
+# ────────────── Time ──────────────
+[time]
+disabled = false
+style = "white"
+format = "[🕐 $time]($style)"
+time_format = "%R"

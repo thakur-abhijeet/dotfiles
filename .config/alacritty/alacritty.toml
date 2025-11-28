@@ -1,0 +1,49 @@
+# Import external theme configuration
+# Note: Must be top-level for Alacritty to recognize
+
+general.import = [ "~/.config/alacritty/theme.toml" ]
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+normal = { family = "Jetbrains Mono Nerd Font", style = "Regular" }
+bold   = { family = "Jetbrains Mono Nerd Font", style = "Bold" }
+italic = { family = "Jetbrains Mono Nerd Font", style = "Italic" }
+size   = 14
+
+# Optional: adjust spacing for readability
+offset.x = 0    # letter spacing
+offset.y = 1    # line spacing
+
+[window]
+padding.x = 12
+padding.y = 12
+dynamic_padding = true  # Adjust padding automatically on resize
+decorations = "None"
+
+# Opacity requires a running compositor (e.g., picom, KWin, Wayfire)
+opacity = 0.98
+dynamic_title = true
+
+[cursor]
+style = "Beam"
+
+# Scrolling settings (added for consistency & control)
+[scrolling]
+history = 10000         # Number of lines in scrollback
+multiplier = 3          # Lines scrolled per scroll step
+
+# Mouse behavior (explicit for clarity)
+[mouse]
+hide_when_typing = true # Hide mouse cursor while typing
+
+# Selection settings (future-proof defaults)
+[selection]
+semantic_escape_chars = ",│`|:\"' ()[]{}<>"
+save_to_clipboard = true # Automatically copy selected text to clipboard
+
+[keyboard]
+bindings = [
+    { key = "F11", action = "ToggleFullscreen" }
+]

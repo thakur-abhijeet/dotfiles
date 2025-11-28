@@ -1,0 +1,6 @@
+# This file contains fish universal variable definitions.
+# VERSION: 3.0
+SETUVAR --export JAVA_HOME:/usr/lib/jvm/java\x2d21\x2dopenjdk
+SETUVAR __fish_initialized:3800
+SETUVAR fish_key_bindings:fish_default_key_bindings
+SETUVAR fish_user_paths:/usr/lib/jvm/java\x2d21\x2dopenjdk/bin\x1e/home/masubhaat/\x2elocal/bin\x1e/usr/local/bin

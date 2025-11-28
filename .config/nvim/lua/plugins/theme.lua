@@ -1,0 +1,1 @@
+/home/masubhaat/.config/themes/matte-black/neovim.lua
