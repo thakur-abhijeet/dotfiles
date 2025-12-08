@@ -3,6 +3,7 @@
     "considerPreedit": false,
     "faviconService": "twenty",
     "font": {
+        "normal": "CaskaydiaMono NFM",
         "size": 10.5
     },
     "keybinding": "default",

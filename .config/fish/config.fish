@@ -85,3 +85,31 @@ function fish_greeting
 end
 
 # ╰────────────────────────────────────────────────────────────────────────╯ #
+
+# ╭──────────────────────────[ Spicetify]────────────────────────╮ #
+
+fish_add_path /home/masubhaat/.spicetify
+
+# ╰────────────────────────────────────────────────────────────────────────╯ #
+
+# ╭──────────────────────────[ Java Configuration Path]────────────────────────╮ #
+
+# Java PATH
+#set -Ux JAVA_HOME /usr/lib/jvm/java-17-openjdk
+#set -Ux PATH $JAVA_HOME/bin $PATH
+
+# ╰────────────────────────────────────────────────────────────────────────╯ #
+
+# ╭──────────────────────────[ Git Setup]────────────────────────╮ #
+
+# Start SSH Agent
+#if not pgrep -u (whoami) ssh-agent >/dev/null
+#eval (ssh-agent -c)
+#end
+
+#ssh-add -l >/dev/null 2>&1
+#if test $status -ne 0
+#ssh-add ~/.ssh/id_ed25519
+#end
+
+# ╰────────────────────────────────────────────────────────────────────────╯ #
