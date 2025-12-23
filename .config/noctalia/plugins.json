@@ -10,7 +10,13 @@
         "catwalk": {
             "enabled": true
         },
+        "fancy-audiovisualizer": {
+            "enabled": true
+        },
         "mini-docker": {
+            "enabled": true
+        },
+        "network-indicator": {
             "enabled": true
         },
         "privacy-indicator": {

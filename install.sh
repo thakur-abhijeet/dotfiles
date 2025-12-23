@@ -1,160 +1,124 @@
 #!/usr/bin/env bash
-set -e
+# =============================================================================
+# Dotfiles Installer
+# Author: Abhijeet Thakur
+# Description: Robust installer for Hyprland + Fuzzel + Kitty + Starship + Scripts
+# =============================================================================
 
-DOTFILES_DIR="$(pwd)"
+set -euo pipefail
+IFS=$'\n\t'
 
-# -----------------------------------------------------
-#  Default Flags
-# -----------------------------------------------------
-DRY_RUN=false
-DO_BACKUP=true
-INSTALL_PACKAGES=true
+# -----------------------------
+# Functions
+# -----------------------------
+info() { echo -e "\033[1;34m[INFO]\033[0m $*"; }
+warn() { echo -e "\033[1;33m[WARN]\033[0m $*"; }
+error() {
+  echo -e "\033[1;31m[ERROR]\033[0m $*"
+  exit 1
+}
 
-# -----------------------------------------------------
-#  Helper Functions
-# -----------------------------------------------------
-
-log() { echo -e "👉 $1"; }
-warn() { echo -e "⚠️  $1"; }
-error() { echo -e "❌ $1"; }
-
-run() {
-  if [ "$DRY_RUN" = true ]; then
-    echo "[DRY RUN] $1"
-  else
-    eval "$1"
+backup_if_exists() {
+  local file="$1"
+  if [ -e "$file" ]; then
+    local ts
+    ts=$(date +"%Y%m%d%H%M%S")
+    mv "$file" "${file}.bak.$ts"
+    info "Backed up $file to ${file}.bak.$ts"
   fi
 }
 
-backup_and_link() {
-  local src="$1"
-  local dest="$2"
+# -----------------------------
+# Directories
+# -----------------------------
+DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+CONFIG_DIR="$HOME/.config"
+LOCAL_BIN="$HOME/.local/bin"
+THEMES_DIR="$CONFIG_DIR/themes"
 
-  if [ -e "$dest" ] || [ -h "$dest" ]; then
-    if [ "$DO_BACKUP" = true ]; then
-      run "mv \"$dest\" \"$dest.bak\""
-      log "Backup created: $dest.bak"
-    else
-      warn "Skipping backup for $dest"
-      run "rm -rf \"$dest\""
-    fi
-  fi
+mkdir -p "$CONFIG_DIR"
+mkdir -p "$LOCAL_BIN"
+mkdir -p "$THEMES_DIR"
 
-  log "Linking $src → $dest"
-  run "ln -s \"$src\" \"$dest\""
-}
-
-install_packages() {
-  local packages=("$@")
-
-  if [ "$INSTALL_PACKAGES" = false ]; then
-    warn "Skipping package installation (flag: --no-package-install)"
-    return
-  fi
-
-  if command -v yay >/dev/null 2>&1; then
-    log "Using yay to install packages..."
-    run "yay -S --needed --noconfirm ${packages[*]}"
-  else
-    warn "yay not found; installing only repo packages using pacman"
-    run "sudo pacman -S --needed --noconfirm ${packages[*]}"
-  fi
-}
-
-# -----------------------------------------------------
-#  Argument Parser
-# -----------------------------------------------------
-usage() {
-  cat <<EOF
-Usage: ./install.sh [options]
-
-Options:
-  --dry-run               Show what will happen, make no changes
-  --no-backup            Do not backup existing configs
-  --no-package-install   Do not install packages
-  --help                 Show help
-
-Examples:
-  ./install.sh
-  ./install.sh --dry-run
-  ./install.sh --no-backup
-  ./install.sh --dry-run --no-package-install
-EOF
-}
-
-for arg in "$@"; do
-  case $arg in
-  --dry-run) DRY_RUN=true ;;
-  --no-backup) DO_BACKUP=false ;;
-  --no-package-install) INSTALL_PACKAGES=false ;;
-  --help)
-    usage
-    exit 0
-    ;;
-  *)
-    error "Unknown option: $arg"
-    usage
-    exit 1
-    ;;
-  esac
-done
-
-# -----------------------------------------------------
-#  Start Installation
-# -----------------------------------------------------
-
-log "🚀 Dotfiles Installation Started"
-log "Directory: $DOTFILES_DIR"
-log "Dry Run Mode: $DRY_RUN"
-log "Backup Enabled: $DO_BACKUP"
-log "Package Installation: $INSTALL_PACKAGES"
-
-# Required packages
-PACKAGES=(
-  hyprland
-  alacritty
-  fish
-  fuzzel
-  neovim
-  starship
-  btop
-  fastfetch
-  jq
-  git
-  curl
-)
-
-log "📦 Installing packages (if enabled)..."
-install_packages "${PACKAGES[@]}"
-
-log "📁 Creating ~/.config"
-run "mkdir -p \"$HOME/.config\""
-
-log "🔗 Linking config directories"
-for dir in "$DOTFILES_DIR/.config/"*; do
-  name=$(basename "$dir")
-  backup_and_link "$dir" "$HOME/.config/$name"
-done
-
-log "⚙️ Installing scripts to ~/.local/bin"
-run "mkdir -p \"$HOME/.local/bin\""
-backup_and_link "$DOTFILES_DIR/scripts/switch-theme.sh" "$HOME/.local/bin/switch-theme"
-run "chmod +x \"$HOME/.local/bin/switch-theme\""
-
-log "🎨 Linking themes → ~/.themes-dotfiles"
-backup_and_link "$DOTFILES_DIR/themes" "$HOME/.themes-dotfiles"
-
-log "🐚 Setting fish as default shell"
-if command -v fish >/dev/null 2>&1; then
-  if [[ "$SHELL" != "$(which fish)" ]]; then
-    run "chsh -s \"$(which fish)\""
-    log "Fish shell set as default!"
-  else
-    log "Fish already default."
-  fi
+# -----------------------------
+# Dependencies
+# -----------------------------
+info "Installing dependencies..."
+if command -v pacman >/dev/null 2>&1; then
+  sudo pacman -Syu --needed git fzf bat curl alacritty starship jq wl-clipboard \
+    wayland-protocols hyprland kitty --noconfirm
+else
+  warn "Manual installation of dependencies may be required (non-pacman system)"
 fi
 
-log "✨ Installation Complete!"
-if [ "$DRY_RUN" = true ]; then
-  warn "This was a dry run. No changes were made."
+# -----------------------------
+# Copy Configs
+# -----------------------------
+info "Copying configuration files..."
+
+for folder in hypr fuzzel kitty starship; do
+  src="$DOTFILES_DIR/.config/$folder"
+  dest="$CONFIG_DIR/$folder"
+  mkdir -p "$dest"
+  for file in "$src"/*; do
+    backup_if_exists "$dest/$(basename "$file")"
+    cp -r "$file" "$dest/"
+    info "Copied $(basename "$file") to $dest/"
+  done
+done
+
+# -----------------------------
+# Install Scripts (Fuzzel)
+# -----------------------------
+info "Installing Fuzzel scripts..."
+for script in docker-menu emoji-picker switch-theme; do
+  src="$DOTFILES_DIR/scripts/$script"
+  if [ -f "$src" ]; then
+    cp "$src" "$LOCAL_BIN/"
+    chmod +x "$LOCAL_BIN/$script"
+    info "Installed $script to $LOCAL_BIN/"
+  else
+    warn "Script $script not found in $DOTFILES_DIR/scripts/"
+  fi
+done
+
+# -----------------------------
+# Themes
+# -----------------------------
+info "Installing themes..."
+for theme in "$DOTFILES_DIR/themes/"*; do
+  if [ -d "$theme" ]; then
+    cp -r "$theme" "$THEMES_DIR/"
+    info "Installed theme $(basename "$theme")"
+  fi
+done
+
+# -----------------------------
+# Starship
+# -----------------------------
+info "Setting up Starship prompt..."
+FISH_CONFIG="$HOME/.config/fish/config.fish"
+if ! grep -q 'starship init' "$FISH_CONFIG"; then
+  echo 'starship init fish | source' >>"$FISH_CONFIG"
+  info "Added Starship initialization to Fish config"
 fi
+
+# -----------------------------
+# Fonts (optional)
+# -----------------------------
+info "Installing Nerd Fonts (optional, required for icons)..."
+NERD_FONT_URL="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.3/CaskaydiaCove.zip"
+FONT_DIR="$HOME/.local/share/fonts"
+mkdir -p "$FONT_DIR"
+curl -Lo /tmp/caskaydia.zip "$NERD_FONT_URL"
+unzip -o /tmp/caskaydia.zip -d "$FONT_DIR"
+fc-cache -fv
+info "Fonts installed and font cache updated."
+
+# -----------------------------
+# Done
+# -----------------------------
+info "Dotfiles installation complete!"
+echo -e "\033[1;32m[✔] All configs, scripts, and themes installed.\033[0m"
+echo "You can launch Fuzzel scripts like: docker-menu, emoji-picker, switch-theme"
+echo "Restart your shell or run 'starship init fish | source' to apply the prompt."

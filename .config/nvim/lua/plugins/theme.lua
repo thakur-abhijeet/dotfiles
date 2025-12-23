@@ -1,1 +1,1 @@
-/home/masubhaat/.config/themes/tokyo-night/neovim.lua
+/home/masubhaat/.config/themes/catppuccin/neovim.lua

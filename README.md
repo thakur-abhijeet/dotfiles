@@ -1,115 +1,210 @@
-# 🌿 Abhijeet’s Arch Linux Dotfiles
+# 🧠 Abhijeet’s Dotfiles (Hyprland + Wayland)
 
-A clean, fast, and minimal **Arch Linux + Hyprland** dotfiles setup designed for productivity.  
-These dotfiles include configurations for:
+A clean, modular, and performance-focused **Wayland setup** built around **Hyprland**, **Fish shell**, **Kitty**, **Fuzzel**, and a **theme-driven workflow**.
 
-- Hyprland (Wayland compositor)
-- Alacritty terminal
-- Fish shell + Starship prompt
-- Fuzzel launcher
+Designed for **Arch / CachyOS**, optimized for daily development, and structured to be easily extensible.
+
+---
+
+## ✨ Highlights
+
+- 🪟 **Hyprland** (Wayland compositor)
+- 🐟 **Fish shell** with Starship prompt
+- 🐱 **Kitty** terminal (themed & transparent)
+- 🔍 **Fuzzel** launcher + custom scripts
+- 🎨 **Theme-based workflow** (inspired by Omarchy)
+- 🧩 Modular configs (easy to maintain & debug)
+- ⚡ Minimal, fast, no unnecessary bloat
+
+---
+
+## 📂 Repository Structure
+
+
+dotfiles/
+├── .config/ # All user configuration files
+│ ├── hypr/ # Hyprland (monitors, input, envs, windows, theme)
+│ ├── fish/ # Fish shell config
+│ ├── kitty/ # Kitty terminal config
+│ ├── fuzzel/ # Fuzzel launcher config
+│ ├── nvim/ # Neovim config
+│ ├── starship.toml # Starship prompt
+│ ├── gtk-3.0 / gtk-4.0 # GTK theming
+│ ├── noctalia/ # Noctalia shell components
+│ ├── vicinae/ # Vicinae config
+│ └── others… # btop, fastfetch, vesktop, etc.
+│
+├── scripts/ # User scripts (Fuzzel utilities)
+│ ├── docker-menu
+│ ├── emoji-picker
+│ └── switch-theme
+│
+├── themes/ # Central theme repository
+│ ├── catppuccin
+│ ├── gruvbox
+│ ├── everforest
+│ ├── nord
+│ ├── tokyo-night
+│ └── many more…
+│
+├── install.sh # One-command installer
+├── README.md
+└── LICENSE
+
+
+
+
+
+---
+
+## 🎨 Themes
+
+All themes live in:
+
+~/.config/themes/
+
+
+
+
+Each theme may contain configs for:
+- Hyprland
+- Kitty
+- Alacritty
 - Neovim
-- Btop, Fastfetch, Vicinae, Noctalia Shell Bar
-- Custom themes + theme switching script
+- btop
+- GTK
+- Icons
+- Wallpapers
 
-Everything is installed and symlinked using one simple script.
-
----
-
-## 🚀 Features
-
-- **One-command installation**
-- **Automatic package installation** (via `yay`, `paru` or `pacman`)
-- **Safe backup system** (`*.bak`)
-- **Symlink-based dotfile management**
-- **Theme switching system** (dark / light)
-- **Optional flags for full customization**
-- **Dry run mode** to preview changes before applying
+> ⚠️ Some files like `chromium.theme`, `ghostty.conf`, `mako.ini`,
+> `swayosd.css`, `walker.css`, `waybar.css` exist **for future use only**
+> and are **not actively used**.
 
 ---
 
-## 📦 Requirements
-
-- Arch Linux or Arch-based distro
-- Git
-- (Optional) `yay` or `paru` for AUR package support  
-  If `yay` or `paru` is missing, the script will fall back to `pacman`.
-
-
-- Install required packages  
-- Backup existing configs  
-- Create symlinks  
-- Install theme-switching script  
-- Link your `themes/` directory  
-- Set fish as your default shell  
-
----
-
-## ⚙️ Installation Script Options
-
-The script supports optional flags:
-
-| Flag | Description |
-|------|-------------|
-| `--dry-run` | Shows all actions without making changes |
-| `--no-backup` | Skips creating `*.bak` backups |
-| `--no-package-install` | Skips installing packages |
-| `--help` | Displays help message |
-
----
-## 🌓 Theme Switching
-
-Includes a custom script located at:
-
-
-`~/.local/bin/switch-theme`
-
-Useful for changing your entire system’s colors in one command.
-
----
-
-## 🛠 Customization
-
-You can easily add:
-
-More configs inside `.config/`
-
-Additional scripts in `scripts/`
-
-New themes inside `themes/`
-
-Extra packages in the `install.sh` array
-
-The installation script is fully extensible.
-
----
-
-## ❗ Notes
-
-All existing configs will be backed up unless you use --no-backup.
-
-The repository uses symlinks, so editing files directly in ~/.config/ updates your repo.
-
----
-
-## 🔧 Installation
+## 🚀 One-Command Installation
 
 ```bash
-git clone https://github.com/USERNAME/dotfiles.git
-cd dotfiles
+git clone https://github.com/<your-username>/dotfiles.git ~/dotfiles
+cd ~/dotfiles
 chmod +x install.sh
 ./install.sh
-```
 
-```bash
-#Dry run (no changes applied):
-./install.sh --dry-run
 
-#Dry run (no backup):
-./install.sh --no-backup
+What install.sh does
 
-#Dry run (no package installed):
-./install.sh --no-package-install
+Backs up existing configs safely
 
-#Dry run (no changes and no package:
-./install.sh --dry-run --no-package-install
+Installs configs to ~/.config/
 
+Copies scripts to ~/.local/bin/
+
+Makes scripts executable
+
+Installs required packages (Arch/CachyOS)
+
+Installs Nerd Fonts (CaskaydiaCove)
+
+Sets up Fish + Starship
+
+
+📜 Scripts (~/.local/bin)
+
+After installation, these commands are available globally:
+
+
+
+
+| Script         | Purpose                              |
+| -------------- | ------------------------------------ |
+| `docker-menu`  | Docker container launcher via Fuzzel |
+| `emoji-picker` | Pick & copy emojis                   |
+| `switch-theme` | Switch full system theme instantly   |
+
+
+
+Scripts are stored in dotfiles/scripts/
+and installed to ~/.local/bin/.
+
+
+🪟 Hyprland Design Philosophy
+
+Modular config files (source = …)
+
+No breaking defaults
+
+Explicit window rules
+
+Minimal animations (smooth, not flashy)
+
+Keyboard-first workflow
+
+Safe XWayland handling
+
+🧠 Dependencies
+
+Core
+
+Hyprland
+
+Fish
+
+Kitty
+
+Fuzzel
+
+Starship
+
+Neovim
+
+Utilities
+
+wl-clipboard
+
+jq
+
+fzf
+
+ripgrep
+
+bat
+
+curl
+
+git
+
+All handled automatically by install.sh (Arch-based systems).
+
+🙏 Credits & Inspiration
+
+Omarchy
+Theme directory structure & philosophy
+https://github.com/basecamp/omarchy
+
+done.fish
+Fish shell command completion notifications
+https://github.com/franciscolourenco/done
+
+Hyprland Community
+Config patterns & Wayland best practices
+https://github.com/hyprwm/Hyprland
+
+Catppuccin / Gruvbox / Everforest authors
+Beautiful, consistent color systems
+
+⚠️ Disclaimer
+
+These dotfiles are opinionated and tailored to my workflow.
+Use them as:
+
+A reference
+
+A base
+
+Or inspiration
+
+Always review scripts before running them.
+
+📜 License
+
+MIT License — feel free to fork, modify, and share.

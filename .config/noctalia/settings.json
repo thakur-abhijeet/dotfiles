@@ -26,11 +26,11 @@
     },
     "bar": {
         "capsuleOpacity": 1,
-        "density": "default",
+        "density": "comfortable",
         "exclusive": true,
         "floating": true,
         "marginHorizontal": 0.45,
-        "marginVertical": 0.4,
+        "marginVertical": 0.5000000000000001,
         "monitors": [
         ],
         "outerCorners": false,
@@ -56,20 +56,15 @@
                     "usePrimaryColor": false
                 },
                 {
+                    "id": "KeepAwake"
+                },
+                {
                     "hideWhenZero": true,
                     "id": "NotificationHistory",
                     "showUnreadBadge": true
                 },
                 {
-                    "customFont": "",
-                    "formatHorizontal": "HH:mm | ddd, MMM dd",
-                    "formatVertical": "HH mm - dd MM",
-                    "id": "Clock",
-                    "useCustomFont": false,
-                    "usePrimaryColor": true
-                },
-                {
-                    "id": "KeepAwake"
+                    "id": "plugin:network-indicator"
                 }
             ],
             "left": [
@@ -78,28 +73,36 @@
                     "colorizeSystemIcon": "none",
                     "customIconPath": "",
                     "enableColorization": false,
-                    "icon": "circle",
+                    "icon": "noctalia",
                     "id": "ControlCenter",
                     "useDistroLogo": false
+                },
+                {
+                    "customFont": "",
+                    "formatHorizontal": "HH:mm ddd, MMM dd",
+                    "formatVertical": "HH mm - dd MM",
+                    "id": "Clock",
+                    "useCustomFont": false,
+                    "usePrimaryColor": true
                 },
                 {
                     "characterCount": 2,
                     "colorizeIcons": false,
                     "enableScrollWheel": true,
                     "followFocusedScreen": false,
-                    "hideUnoccupied": true,
+                    "hideUnoccupied": false,
                     "id": "Workspace",
                     "labelMode": "index",
                     "showApplications": false,
                     "showLabelsOnlyWhenOccupied": true
                 },
                 {
-                    "colorizeIcons": true,
-                    "hideMode": "visible",
+                    "colorizeIcons": false,
+                    "hideMode": "hidden",
                     "id": "ActiveWindow",
                     "maxWidth": 145,
                     "scrollingMode": "hover",
-                    "showIcon": false,
+                    "showIcon": true,
                     "useFixedWidth": false
                 },
                 {
@@ -108,12 +111,18 @@
                     "id": "MediaMini",
                     "maxWidth": 145,
                     "scrollingMode": "hover",
-                    "showAlbumArt": true,
+                    "showAlbumArt": false,
                     "showArtistFirst": true,
                     "showProgressRing": true,
-                    "showVisualizer": true,
+                    "showVisualizer": false,
                     "useFixedWidth": false,
                     "visualizerType": "linear"
+                },
+                {
+                    "colorName": "primary",
+                    "hideWhenIdle": false,
+                    "id": "AudioVisualizer",
+                    "width": 200
                 }
             ],
             "right": [
@@ -123,7 +132,7 @@
                 },
                 {
                     "displayMode": "onhover",
-                    "id": "Bluetooth"
+                    "id": "Microphone"
                 },
                 {
                     "displayMode": "onhover",
@@ -131,11 +140,11 @@
                 },
                 {
                     "displayMode": "onhover",
-                    "id": "Microphone"
+                    "id": "Brightness"
                 },
                 {
                     "displayMode": "onhover",
-                    "id": "Brightness"
+                    "id": "Bluetooth"
                 },
                 {
                     "deviceNativePath": "",
@@ -143,14 +152,24 @@
                     "id": "Battery",
                     "showNoctaliaPerformance": false,
                     "showPowerProfiles": false,
-                    "warningThreshold": 25
+                    "warningThreshold": 30
+                },
+                {
+                    "id": "PowerProfile"
+                },
+                {
+                    "id": "plugin:mini-docker"
+                },
+                {
+                    "id": "Spacer",
+                    "width": 20
+                },
+                {
+                    "id": "plugin:privacy-indicator"
                 },
                 {
                     "colorName": "error",
                     "id": "SessionMenu"
-                },
-                {
-                    "id": "plugin:mini-docker"
                 }
             ]
         }
@@ -186,7 +205,7 @@
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "matugenSchemeType": "scheme-expressive",
-        "predefinedScheme": "tokyo-night",
+        "predefinedScheme": "Catppuccin",
         "schedulingMode": "off",
         "useWallpaperColors": false
     },
@@ -342,7 +361,7 @@
         "showCalendarEvents": true,
         "showCalendarWeather": true,
         "showWeekNumberInCalendar": true,
-        "use12hourFormat": false,
+        "use12hourFormat": true,
         "useFahrenheit": false,
         "weatherEnabled": true,
         "weatherShowEffects": true
@@ -458,7 +477,7 @@
     },
     "settingsVersion": 31,
     "systemMonitor": {
-        "cpuCriticalThreshold": 90,
+        "cpuCriticalThreshold": 80,
         "cpuPollingInterval": 3000,
         "cpuWarningThreshold": 80,
         "criticalColor": "#b91c1c",
